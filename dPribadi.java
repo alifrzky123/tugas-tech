@@ -5,7 +5,7 @@ public class dPribadi{
         int tanggallahir = 29;
         String bulan = "Agustus";
         int tahunlahir = 1999;
-        int umur = 2019-tahunlahir;
+        double umur = 2019-tahunlahir;
         
         String alamat = "Perumahan Taman Pondok Cabe Blok A5 No.2 Rt 1 Rw 8 Pamulang Timur, Tangerang Selatan, Banten";
         System.out.println(namasaya);
