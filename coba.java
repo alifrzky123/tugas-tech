@@ -1,13 +1,7 @@
 public class coba{
     public static void main(String[]args){
-        boolean a = true;
-        boolean b = false;
-
-        System.out.println(a && b); //false
-        System.out.println(a || b); //true
-        System.out.println(!a); //false
-        System.out.println(!a && b);
-        System.out.println(!(a && b));
-
+        int angka = Integer.parseInt(args[0]);
+        int mod = angka % 2;
+        System.out.println( mod == 1 ? "GANJIL":"GENAP");
     }
 }
