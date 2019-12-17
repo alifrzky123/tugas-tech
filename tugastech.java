@@ -51,7 +51,7 @@ public class tugastech{
                 baris ("tinggi = ");double t = input.nextDouble();
                 cetak(LSegitiga(a,t));
                 int jawab = input.nextInt();
-                if ((jawab <=1) || (jawab >=3)){
+                if (jawab != 2){
                     cetak ("anda keluar menu");
                     System.exit(0);
                 }
@@ -62,7 +62,7 @@ public class tugastech{
                 baris ("tinggi = "); double t1 = input.nextDouble();
                 cetak(VBalok(p,l,t1));
                 int jawab1 = input.nextInt();
-                if ((jawab1 <=1) || (jawab1 >=3)){
+                if (jawab1 != 2){
                     cetak ("anda keluar menu");
                     System.exit(0);
                 }
@@ -73,7 +73,7 @@ public class tugastech{
                 baris ("tinggi = "); double t2 = input.nextDouble();
                 cetak(VPrismaSegitiga(p1,l1,t2));
                 int jawab2 = input.nextInt();
-                if ((jawab2 <=1) || (jawab2 >=3)){
+                if (jawab2 != 2){
                     cetak ("anda keluar menu");
                     System.exit(0);
                 }
@@ -83,7 +83,7 @@ public class tugastech{
                 baris ("tinggi = ");  double t3 = input.nextDouble();
                 cetak(VKerucut(r,t3));
                 int jawab3 = input.nextInt();
-                if ((jawab3 <=1) || (jawab3 >=3)){
+                if (jawab3 != 2){
                     cetak ("anda keluar menu");
                     System.exit(0);
                 }
