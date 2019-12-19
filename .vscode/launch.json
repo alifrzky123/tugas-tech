@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - app",
+            "request": "launch",
+            "mainClass": "app"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Mobil",
             "request": "launch",
             "mainClass": "Mobil"
