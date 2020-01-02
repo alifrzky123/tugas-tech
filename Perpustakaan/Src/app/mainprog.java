@@ -12,7 +12,7 @@ public class mainprog{
         System.out.println(obj);
     }
     public static void main(String[] args){
-        memberr();
+    memberr();
     cetak("==========================");
     BUKU();
     cetak("==========================");
@@ -26,10 +26,7 @@ public class mainprog{
 
         for (String key : orang.keySet()){
             String nama = orang.get(key).getName();            
-            String id = orang.get(key).getId();  
-            cetak(nama);
-            cetak(id);
-            cetak("");          
+            String id = orang.get(key).getId();          
         }
 
     }
@@ -56,22 +53,46 @@ public class mainprog{
             cetak("");
         }
     Scanner input = new Scanner(System.in);
-    cetak("Masukkan ISBN buku yang ingin dipinjam : ");
-    String isbn = input.nextLine();
+
     member member = orang.get("001");
     transaksi transaction = new transaksi(member);
     transaction.setKodeTransaksi();
     cetak(transaction.getKodeTransaksi());
 
-    // cek buku avail atau tidak
-    if(perpus.containsKey(isbn)){
-        cetak("Buku Ada");
-        buku dipinjams = perpus.get(isbn);
-        dipinjams.dipinjam();
-        transaction.tambahtransaksi(isbn, dipinjams);
-        cetak("Buku - "+transaction.getBook(isbn).getJudul()+ "- Berhasil ditambahkan ke transaksi");
-    }else{
-        cetak("Buku kosong");
+    boolean meminjam = true;
+    while(meminjam){
+            cetak("Masukkan ISBN buku yang ingin dipinjam : ");
+            String isbn = input.nextLine();
+            // cek buku avail atau tidak
+            if(perpus.containsKey(isbn)){
+                cetak("Buku Ada");
+                buku dipinjams = perpus.get(isbn);
+                dipinjams.dipinjam();
+                transaction.tambahtransaksi(isbn, dipinjams);
+                cetak("Buku - "+transaction.getBook(isbn).getJudul()+ "- Berhasil ditambahkan ke transaksi");
+                cetak ("=======================");
+            }else{
+                cetak("Buku kosong");
+            }cetak("Masih ingin meminjam buku ? [Y/N] ");
+        String jawab = input.nextLine();
+        if(jawab.equalsIgnoreCase("N")){
+            meminjam = false;
+        }
+        }
+        
+    
+    if (transaction.getBooks().size() > 0){
+        for(String i : transaction.getBooks().keySet()){
+            String judul = perpus.get(i).getJudul();
+            String isbn = perpus.get(i).getISBN();
+            String penulis = perpus.get(i).getPenulis();
+            int tahunt = perpus.get(i).getTahunTerbit();
+            cetak(judul);
+            cetak(isbn);
+            cetak(penulis);
+            cetak(tahunt);
+            cetak("==================================");
+        }
     }
     }
 }
