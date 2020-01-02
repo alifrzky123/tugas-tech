@@ -24,7 +24,7 @@ public class transaksi{
 	public void setKodeTransaksi() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
         String date = formatter.format(this.dateTime);
-        this.kodeTransaksi = this.member.getIDMember()+"-"+date;
+        this.kodeTransaksi = this.member.getId()+"-"+date;
 	}
 
     public HashMap<String, buku> getBooks() {
@@ -37,5 +37,10 @@ public class transaksi{
     
     public void tambahtransaksi(String isbn, buku buku){
         this.borrowedBooks.put(isbn,buku);
+        System.out.println("Buku berhasil ditambahkan ke transaksi!");
+    }
+
+    public buku getBook(String isbn){
+        return borrowedBooks.get(isbn);
     }
 }

@@ -2,7 +2,7 @@ package app;
 import java.util.Scanner;
 import app.data.buku;
 import app.data.member;
-import app.transaksi.transaksi.java;
+import app.transaction.transaksi;
 import java.lang.reflect.Member;
 import java.util.HashMap;
 
@@ -12,7 +12,7 @@ public class mainprog{
         System.out.println(obj);
     }
     public static void main(String[] args){
-    memberr();
+        memberr();
     cetak("==========================");
     BUKU();
     cetak("==========================");
@@ -58,20 +58,18 @@ public class mainprog{
     Scanner input = new Scanner(System.in);
     cetak("Masukkan ISBN buku yang ingin dipinjam : ");
     String isbn = input.nextLine();
-    transaksi transaction = new transaksi();
-    transaction.setKodeTransaksi("T001");
+    member member = orang.get("001");
+    transaksi transaction = new transaksi(member);
+    transaction.setKodeTransaksi();
+    cetak(transaction.getKodeTransaksi());
+
     // cek buku avail atau tidak
     if(perpus.containsKey(isbn)){
         cetak("Buku Ada");
         buku dipinjams = perpus.get(isbn);
         dipinjams.dipinjam();
-        cetak("Judul        :"+dipinjams.getJudul());
-        cetak("ISBN         :"+dipinjams.getISBN());
-        cetak("Penerbit     :"+dipinjams.getPenerbit());
-        cetak("Penulis      :"+dipinjams.getPenulis());
-        cetak("Halaman      :"+dipinjams.getJmlHalaman());
-        cetak("Tahun        :"+dipinjams.getTahunTerbit());
-        cetak("Stok         :"+dipinjams.getStok());
+        transaction.tambahtransaksi(isbn, dipinjams);
+        cetak("Buku - "+transaction.getBook(isbn).getJudul()+ "- Berhasil ditambahkan ke transaksi");
     }else{
         cetak("Buku kosong");
     }
