@@ -6,6 +6,8 @@ public class buku{
     private String penulis;
     private String penerbit;
     private int JmlHalaman;
+    private int tahunTerbit;
+    private int stok;
 
     
 
@@ -48,12 +50,32 @@ public class buku{
     public void setJmlHalaman(int jmlHalaman) {
         JmlHalaman = jmlHalaman;
     }
+    public int getTahunTerbit() {
+        return tahunTerbit;
+    }
 
-    public buku(String judul, String iSBN, String penulis, String penerbit, int jmlHalaman) {
+    public void setTahunTerbit(int tahunTerbit) {
+        this.tahunTerbit = tahunTerbit;
+    }
+
+    public int getStok() {
+        return stok;
+    }
+
+    public void setStok(int stok) {
+        this.stok = stok;
+    }
+    public void dipinjam(){
+        this.stok--;
+    }
+
+    public buku(String judul, String iSBN, String penulis, String penerbit, int jmlHalaman, int tahunT, int stok) {
         this.judul = judul;
         this.ISBN = iSBN;
         this.penulis = penulis;
         this.penerbit = penerbit;
         this.JmlHalaman = jmlHalaman;
+        this.tahunTerbit = tahunT;
+        this.stok = stok;
     }
 }
