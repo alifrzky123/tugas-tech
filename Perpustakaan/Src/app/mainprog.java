@@ -7,7 +7,10 @@ import java.lang.reflect.Member;
 import java.util.HashMap;
 
 public class mainprog{
+
     private static HashMap<String,member> orang = new HashMap<String,member>();
+    private static HashMap<String,transaksi> daftarTransaksi = new HashMap<String,transaksi>();
+
     public static void cetak(Object obj){
         System.out.println(obj);
     }
@@ -93,6 +96,18 @@ public class mainprog{
             cetak(tahunt);
             cetak("==================================");
         }
+        cetak("Apakah data diatas sudah benar? [Y/N] ");
+        String jawab = input.nextLine();
+        if (jawab.equalsIgnoreCase("Y")){
+            //Memasukkan data transaksi ke dalam hashmap
+            daftarTransaksi.put(transaction.getKodeTransaksi(), transaction);
+            cetak("Sukses");
+        }
+        else{
+            cetak("Peminjaman di batalkan");
+        }
+    }else{
+        cetak("PINJEM WOI");
     }
     }
 }
